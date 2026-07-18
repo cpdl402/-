@@ -49,27 +49,50 @@
   @media (max-width:640px){
     .header-logo img{height:52px;}
   }
+  /* デスクトップ: 横並びナビ */
   nav{
     display:flex;gap:4px;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
   }
-  nav::-webkit-scrollbar{display:none;}
   nav a{
     font-family:"Zen Maru Gothic",sans-serif;
     color:var(--ink);text-decoration:none;font-size:0.82rem;font-weight:700;
-    padding:8px 12px;border-radius:6px;transition:background .2s;
-    white-space:nowrap;flex:none;
+    padding:8px 14px;border-radius:6px;transition:background .2s;
+    white-space:nowrap;
   }
   nav a:hover{background:var(--cream-dark);}
-  @media (max-width:640px){
-    nav{gap:0;}
-    nav a{padding:6px 6px;font-size:0.7rem;}
-    .header-logo span{display:none;}
+  .nav-toggle{
+    display:none;
+    flex-direction:column;justify-content:center;gap:5px;
+    width:38px;height:38px;border:none;background:none;cursor:pointer;
+    padding:0;
   }
-  @media (max-width:360px){
-    nav a{padding:5px 4px;font-size:0.65rem;}
+  .nav-toggle span{
+    display:block;width:24px;height:2px;background:var(--red-dark);
+    border-radius:2px;transition:transform .25s,opacity .25s;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  /* モバイル: ハンバーガーメニューに切り替え、デスクトップの横並びとはUIを分ける */
+  @media (max-width:720px){
+    .header-logo span{display:none;}
+    .nav-toggle{display:flex;}
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:99;
+      flex-direction:column;gap:0;
+      background:var(--cream);
+      padding-top:76px;
+      max-height:0;overflow:hidden;
+      transition:max-height .3s ease;
+      box-shadow:0 12px 24px rgba(42,26,19,0.12);
+    }
+    nav.is-open{max-height:420px;}
+    nav a{
+      width:100%;text-align:center;
+      padding:16px 20px;font-size:0.9rem;border-radius:0;
+      border-top:1px solid var(--cream-dark);
+    }
   }
 
   /* ===== ヒーロー ===== */
@@ -218,10 +241,10 @@
     letter-spacing:.08em;margin-bottom:10px;
   }
   .info-card .ic-icon{
-    width:28px;height:28px;border-radius:50%;
-    background:var(--red);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:0.95rem;flex:none;
+    width:9px;height:9px;border-radius:50%;
+    background:var(--red);
+    box-shadow:0 0 0 3px rgba(163,36,47,0.15);
+    flex:none;
   }
   .info-card .ic-main{font-family:"Zen Maru Gothic",sans-serif;font-size:1.1rem;font-weight:900;color:var(--ink);}
   .info-card .ic-sub{font-family:"Zen Maru Gothic",sans-serif;font-size:0.78rem;color:#6b5c50;margin-top:4px;}
@@ -362,7 +385,10 @@
       <img src="images/logo-transparent.png" alt="らーめん 大野家 ロゴ">
       <span>らーめん 大野家</span>
     </div>
-    <nav>
+    <button class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
       <a href="#about">開催概要</a>
       <a href="#menu">メニュー</a>
       <a href="#rules">五カ条</a>
@@ -371,6 +397,23 @@
     </nav>
   </div>
 </header>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('siteNav');
+    toggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
+</script>
 
 <section class="hero">
   <p class="hero-vertical">醤&nbsp;油&nbsp;ら&nbsp;ぁ&nbsp;め&nbsp;ん&nbsp;専&nbsp;門&nbsp;店</p>
@@ -405,22 +448,22 @@
     </p>
     <div class="info-grid">
       <div class="info-card">
-        <div class="ic-label"><span class="ic-icon brush">日</span>開催日</div>
+        <div class="ic-label"><span class="ic-icon"></span>開催日</div>
         <div class="ic-main">令和8年10月24日(土)・25日(日)</div>
         <div class="ic-sub">育英祭 両日開催</div>
       </div>
       <div class="info-card">
-        <div class="ic-label"><span class="ic-icon brush">時</span>営業時間</div>
+        <div class="ic-label"><span class="ic-icon"></span>営業時間</div>
         <div class="ic-main">10:00〜16:00</div>
         <div class="ic-sub">各日通し営業</div>
       </div>
       <div class="info-card">
-        <div class="ic-label"><span class="ic-icon brush">処</span>出店場所</div>
+        <div class="ic-label"><span class="ic-icon"></span>出店場所</div>
         <div class="ic-main">サレジオ工業高等専門学校</div>
         <div class="ic-sub">サレジアンモール（外テント）</div>
       </div>
       <div class="info-card">
-        <div class="ic-label"><span class="ic-icon brush">杯</span>目標販売数</div>
+        <div class="ic-label"><span class="ic-icon"></span>目標販売数</div>
         <div class="ic-main">1,000杯</div>
         <div class="ic-sub">前年実績：900杯超</div>
       </div>
