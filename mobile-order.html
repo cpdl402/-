@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>モバイルオーダーのご案内｜らーめん 大野家</title>
+<meta name="description" content="らーめん大野家のモバイルオーダー（スマホ事前注文）のご案内。並ばずにスマホから注文できます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;600;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #a3242f;
+    --red-dark: #7c1c25;
+    --red-deep: #5c141b;
+    --cream: #fbf4e8;
+    --cream-dark: #f2e6d1;
+    --ink: #2a201c;
+    --gold: #c9a24b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Zen Old Mincho","Zen Maru Gothic",serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.9;
+    letter-spacing:.02em;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  .brush{font-family:"Yuji Syuku",serif;}
+  .gothic{font-family:"Zen Maru Gothic",sans-serif;}
+
+  /* ===== ヘッダー ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    width:100%;
+    background:var(--cream);
+    border-bottom:1px solid rgba(163,36,47,0.15);
+  }
+  .header-inner{
+    max-width:900px;margin:0 auto;padding:6px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .header-logo{display:flex;align-items:center;gap:12px;flex:none;text-decoration:none;}
+  .header-logo img{height:68px;width:auto;}
+  .header-logo span{font-family:"Yuji Syuku",serif;font-size:1.25rem;color:var(--red-dark);}
+  .back-link{
+    font-family:"Zen Maru Gothic",sans-serif;
+    color:var(--red-dark);text-decoration:none;font-size:0.85rem;font-weight:700;
+    padding:8px 14px;border:1px solid var(--red-dark);border-radius:999px;
+    white-space:nowrap;
+  }
+  @media (max-width:640px){
+    .header-logo img{height:48px;}
+    .header-logo span{display:none;}
+    .back-link{font-size:0.72rem;padding:7px 12px;}
+  }
+
+  main{padding-top:96px;}
+
+  section{padding:56px 20px;position:relative;}
+  .section-inner{max-width:720px;margin:0 auto;}
+
+  .washi{
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 50% 0, transparent 20%, rgba(163,36,47,0.045) 21%, rgba(163,36,47,0.045) 34%, transparent 35%, transparent 100%),
+      radial-gradient(circle at 50% 100%, transparent 20%, rgba(163,36,47,0.045) 21%, rgba(163,36,47,0.045) 34%, transparent 35%, transparent 100%);
+    background-size:56px 28px;
+  }
+
+  /* ===== イントロ ===== */
+  .intro{text-align:center;background:var(--red-deep);color:#f3e7d8;padding-top:70px;}
+  .intro-label{
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.75rem;letter-spacing:.28em;color:var(--gold);font-weight:700;margin-bottom:14px;
+  }
+  .intro-title{
+    font-family:"Yuji Syuku",serif;
+    font-size:clamp(1.8rem,6vw,2.6rem);
+    margin-bottom:16px;
+  }
+  .intro-lede{
+    font-size:clamp(1rem,3vw,1.15rem);
+    max-width:520px;margin:0 auto;color:#e7d9c6;
+  }
+
+  /* ===== CTAボタン(共通) ===== */
+  .cta-button{
+    display:block;
+    max-width:420px;margin:0 auto;
+    background:var(--red);color:#fff;text-decoration:none;text-align:center;
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:clamp(1.05rem,3.4vw,1.25rem);font-weight:900;letter-spacing:.03em;
+    padding:20px 24px;border-radius:14px;
+    box-shadow:0 10px 26px rgba(92,20,27,0.35);
+  }
+  .cta-button:active{background:var(--red-dark);}
+  .cta-note{
+    text-align:center;font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.75rem;color:#e7d9c6;margin-top:12px;
+  }
+  #steps .cta-note, #notice .cta-note{color:#8a7a6d;}
+
+  /* ===== 使い方ステップ ===== */
+  .section-head{text-align:center;margin-bottom:44px;}
+  .section-title{
+    font-family:"Yuji Syuku",serif;
+    font-size:clamp(1.5rem,4.5vw,2.1rem);
+    color:var(--red-dark);
+  }
+  .section-title small{
+    display:block;font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.78rem;font-weight:700;color:var(--ink);opacity:0.55;
+    letter-spacing:.05em;margin-top:6px;
+  }
+  .steps{display:flex;flex-direction:column;gap:18px;margin-bottom:40px;}
+  .step{
+    display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;
+    background:#fff;border-radius:16px;padding:22px 24px;
+    box-shadow:0 6px 18px rgba(92,20,27,0.06);
+    border:1px solid var(--cream-dark);
+  }
+  .step-num{
+    font-family:"Yuji Syuku",serif;
+    font-size:1.6rem;color:#fff;
+    background:linear-gradient(155deg,var(--red) 0%,var(--red-dark) 100%);
+    line-height:1;min-width:52px;width:52px;height:52px;
+    border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 10px rgba(92,20,27,0.28);
+  }
+  .step-title{font-weight:900;font-size:1.05rem;color:var(--ink);margin-bottom:6px;}
+  .step-desc{font-size:0.88rem;color:#6b5c50;}
+
+  /* ===== 注意事項 ===== */
+  .notice-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:40px;}
+  .notice-list li{
+    background:var(--cream-dark);
+    border-left:4px solid var(--gold);
+    border-radius:0 10px 10px 0;
+    padding:16px 20px;font-size:0.88rem;color:#5a4a3d;
+  }
+
+  footer{
+    background:var(--ink);color:#cabfb3;
+    text-align:center;padding:44px 20px 30px;
+  }
+  footer .f-logo{font-family:"Yuji Syuku",serif;font-size:1.3rem;color:#f3e7d8;margin-bottom:10px;}
+  footer .f-sub{font-size:0.78rem;opacity:0.75;margin-bottom:16px;}
+  footer a{color:#e7cfa8;font-family:"Zen Maru Gothic",sans-serif;font-size:0.82rem;text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="images/logo-transparent.png" alt="らーめん 大野家 ロゴ">
+      <span>らーめん 大野家</span>
+    </a>
+    <a class="back-link" href="index.html">トップページに戻る</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="intro">
+    <div class="section-inner">
+      <p class="intro-label gothic">MOBILE ORDER</p>
+      <h1 class="intro-title brush">モバイルオーダーのご案内</h1>
+      <p class="intro-lede gothic">
+        お手持ちのスマートフォンから、事前にご注文いただけます。<br>
+        並ばずにご注文いただけますので、ぜひご利用ください。
+      </p>
+    </div>
+  </section>
+
+  <section id="steps">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title brush">ご利用方法<small>HOW TO USE</small></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num gothic">1</div>
+          <div>
+            <p class="step-title gothic">下のボタンからご注文</p>
+            <p class="step-desc">下の「モバイルオーダーのページへ進む」ボタンを押すと、注文画面が開きます。画面の案内にそって、欲しいメニューをお選びください。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num gothic">2</div>
+          <div>
+            <p class="step-title gothic">その場でお支払い</p>
+            <p class="step-desc">注文内容をご確認のうえ、画面の案内にそってお支払いください。お支払いが終わると「呼出番号」が表示されます。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num gothic">3</div>
+          <div>
+            <p class="step-title gothic">番号が呼ばれたら受け取り</p>
+            <p class="step-desc">大野家のテントで番号をお呼びします。呼出番号を係の者にお伝えいただき、らーめんをお受け取りください。</p>
+          </div>
+        </div>
+      </div>
+      <a class="cta-button gothic" href="https://script.google.com/macros/s/AKfycbyW8m-ffYOVxwr2OFQ0uDU8matrFBB_xueRA0PJt2pHEcd-CD8qymn_4PeiQuRo1CusDw/exec?page=order">モバイルオーダーのページへ進む</a>
+      <p class="cta-note">タップすると注文画面に移動します</p>
+    </div>
+  </section>
+
+  <section id="notice" class="washi">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2 class="section-title brush">ご注意<small>NOTICE</small></h2>
+      </div>
+      <ul class="notice-list gothic">
+        <li>呼出番号が表示された画面は、スクリーンショットで保存しておくことをおすすめします。</li>
+        <li>混雑状況により、モバイルオーダーの受付を一時的に停止させていただく場合があります。その場合は、注文画面に「ただいま準備中です」と表示されます。</li>
+        <li>天候や資材の状況により、モバイルオーダーそのものをご利用いただけない場合があります。あらかじめご了承ください。</li>
+      </ul>
+      <a class="cta-button gothic" href="https://script.google.com/macros/s/AKfycbyW8m-ffYOVxwr2OFQ0uDU8matrFBB_xueRA0PJt2pHEcd-CD8qymn_4PeiQuRo1CusDw/exec?page=order">モバイルオーダーのページへ進む</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="f-logo brush">らーめん 大野家</p>
+  <p class="f-sub">育英祭有志団体「大野家」— 心を込めた一杯を、あなたに。</p>
+  <a href="index.html">トップページに戻る</a>
+</footer>
+
+</body>
+</html>

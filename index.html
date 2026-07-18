@@ -111,6 +111,24 @@
     }
   }
 
+  /* ===== モバイルオーダー導線ボタン ===== */
+  .mo-button{
+    position:fixed;top:106px;right:16px;z-index:90;
+    display:flex;align-items:center;gap:6px;
+    background:var(--red);color:#fff;text-decoration:none;
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.78rem;font-weight:700;letter-spacing:.03em;
+    padding:10px 16px;border-radius:999px;
+    box-shadow:0 6px 16px rgba(92,20,27,0.3);
+  }
+  .mo-button:active{background:var(--red-dark);}
+  @media (max-width:640px){
+    .mo-button{
+      top:84px;right:10px;
+      font-size:0.68rem;padding:8px 12px;
+    }
+  }
+
   /* ===== ヒーロー ===== */
   .hero{
     position:relative;
@@ -342,6 +360,14 @@
     outline-offset:8px;
   }
   .owner-photo img{aspect-ratio:2/3;object-fit:cover;object-position:top center;}
+  .owner-photo-placeholder{
+    aspect-ratio:2/3;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--cream-dark);
+    color:#a8988a;
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.85rem;font-weight:700;letter-spacing:.15em;
+  }
   .owner-badge{
     position:absolute;top:14px;left:14px;
     background:var(--red);color:#fff;
@@ -417,6 +443,8 @@
     </nav>
   </div>
 </header>
+
+<a class="mo-button" href="mobile-order.html">モバイルオーダーはこちら</a>
 
 <script>
   (function(){
@@ -577,7 +605,7 @@
     <div class="owner-grid">
       <div class="owner-photo">
         <span class="owner-badge">BOSS</span>
-        <img src="images/owner.jpg" alt="大野家 店主">
+        <div class="owner-photo-placeholder">NO IMAGE</div>
       </div>
       <div>
         <p class="owner-name brush">大野家 店主</p>
