@@ -191,13 +191,15 @@
     .hero-info{flex-direction:column;width:100%;max-width:280px;}
     .hi-sep{width:100%;height:1px;}
     .hi-item{padding:12px 20px;}
-    .scroll-cue{display:none;}
   }
   .scroll-cue{
     position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
     z-index:2;color:#fff;font-size:0.7rem;letter-spacing:.2em;
     display:flex;flex-direction:column;align-items:center;gap:6px;
     opacity:0.85;
+  }
+  @media (max-width:720px){
+    .scroll-cue{display:none;}
   }
   .scroll-cue::after{
     content:"";width:1px;height:28px;background:rgba(255,255,255,0.7);
