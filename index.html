@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>らーめん 大野家｜育英祭</title>
+<meta name="description" content="育英祭出店「らーめん 大野家」公式ページ。こだわりの醤油らーめんを1杯500円で。令和8年10月24日・25日、サレジアンモール（外テント）にて営業。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;600;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red: #a3242f;
+    --red-dark: #7c1c25;
+    --red-deep: #5c141b;
+    --cream: #fbf4e8;
+    --cream-dark: #f2e6d1;
+    --ink: #2a201c;
+    --gold: #c9a24b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Zen Old Mincho","Zen Maru Gothic",serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.9;
+    letter-spacing:.02em;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  .brush{font-family:"Yuji Syuku",serif;}
+  .gothic{font-family:"Zen Maru Gothic",sans-serif;}
+
+  /* ===== ヘッダー ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(251,244,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(163,36,47,0.15);
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;padding:6px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .header-logo{display:flex;align-items:center;gap:12px;flex:none;}
+  .header-logo img{height:68px;width:auto;}
+  .header-logo span{font-family:"Yuji Syuku",serif;font-size:1.25rem;color:var(--red-dark);}
+  @media (max-width:640px){
+    .header-logo img{height:52px;}
+  }
+  nav{
+    display:flex;gap:4px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  nav::-webkit-scrollbar{display:none;}
+  nav a{
+    font-family:"Zen Maru Gothic",sans-serif;
+    color:var(--ink);text-decoration:none;font-size:0.82rem;font-weight:700;
+    padding:8px 12px;border-radius:6px;transition:background .2s;
+    white-space:nowrap;flex:none;
+  }
+  nav a:hover{background:var(--cream-dark);}
+  @media (max-width:640px){
+    nav{gap:0;}
+    nav a{padding:6px 6px;font-size:0.7rem;}
+    .header-logo span{display:none;}
+  }
+  @media (max-width:360px){
+    nav a{padding:5px 4px;font-size:0.65rem;}
+  }
+
+  /* ===== ヒーロー ===== */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    color:#fff;
+    padding:120px 20px 60px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:url('images/ramen.jpg') center 30%/cover no-repeat;
+    filter:brightness(0.48) saturate(1.1);
+    transform:scale(1.05);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(20,8,6,0.45) 100%),
+      linear-gradient(180deg, rgba(92,20,27,0.55) 0%, rgba(42,26,19,0.35) 55%, var(--cream) 100%);
+  }
+  .hero-vertical{
+    position:absolute;z-index:2;left:26px;top:50%;transform:translateY(-50%);
+    writing-mode:vertical-rl;text-orientation:upright;
+    font-family:"Yuji Syuku",serif;font-size:0.82rem;
+    color:rgba(243,231,216,0.5);letter-spacing:.15em;
+  }
+  @media (max-width:780px){ .hero-vertical{display:none;} }
+  .hero-wave{position:absolute;left:0;right:0;bottom:-1px;z-index:2;line-height:0;}
+  .hero-wave svg{width:100%;height:70px;display:block;}
+  .hero-wave path{fill:var(--cream);}
+  .hero-content{position:relative;z-index:2;max-width:760px;}
+  .hero-logo{width:min(340px,78vw);margin:0 auto 22px;filter:drop-shadow(0 8px 22px rgba(0,0,0,0.55));}
+  .hero-catch{
+    font-family:"Yuji Syuku",serif;
+    font-size:clamp(1.6rem,5vw,2.7rem);
+    letter-spacing:.06em;
+    text-shadow:0 3px 14px rgba(0,0,0,0.6);
+    margin-bottom:14px;
+  }
+  .hero-sub{
+    font-size:clamp(0.95rem,2.2vw,1.15rem);
+    font-weight:700;
+    opacity:0.95;
+    text-shadow:0 2px 8px rgba(0,0,0,0.5);
+    margin-bottom:34px;
+  }
+  .hero-divider{
+    display:flex;align-items:center;gap:14px;
+    max-width:280px;margin:0 auto 30px;
+    color:var(--gold);
+  }
+  .hero-divider span{flex:1;height:1px;background:rgba(201,162,75,0.55);}
+  .hero-divider i{font-size:0.6rem;font-style:normal;}
+  .hero-info{
+    display:inline-flex;flex-wrap:wrap;justify-content:center;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.35);
+    backdrop-filter:blur(6px);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .hi-item{
+    display:flex;flex-direction:column;align-items:center;gap:5px;
+    padding:16px 30px;
+  }
+  .hi-label{
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.6rem;letter-spacing:.3em;color:var(--gold);font-weight:700;
+  }
+  .hi-value{
+    font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.95rem;font-weight:700;letter-spacing:.02em;white-space:nowrap;
+  }
+  .hi-sep{width:1px;background:rgba(255,255,255,0.28);}
+  @media (max-width:560px){
+    .hero-info{flex-direction:column;width:100%;max-width:280px;}
+    .hi-sep{width:100%;height:1px;}
+    .hi-item{padding:12px 20px;}
+  }
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    z-index:2;color:#fff;font-size:0.7rem;letter-spacing:.2em;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    opacity:0.85;
+  }
+  .scroll-cue::after{
+    content:"";width:1px;height:28px;background:rgba(255,255,255,0.7);
+    animation:cue 1.8s infinite;
+  }
+  @keyframes cue{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}50.01%{transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+  /* ===== 共通セクション ===== */
+  section{padding:86px 20px;position:relative;}
+  .section-inner{max-width:1000px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:52px;}
+  .section-label{
+    font-family:"Zen Maru Gothic",sans-serif;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:0.75rem;letter-spacing:.28em;color:var(--gold);
+    font-weight:700;margin-bottom:10px;
+  }
+  .section-label::before,.section-label::after{
+    content:"";width:5px;height:5px;background:var(--red);
+    transform:rotate(45deg);
+  }
+  .washi{
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(circle at 50% 0, transparent 20%, rgba(163,36,47,0.045) 21%, rgba(163,36,47,0.045) 34%, transparent 35%, transparent 100%),
+      radial-gradient(circle at 50% 100%, transparent 20%, rgba(163,36,47,0.045) 21%, rgba(163,36,47,0.045) 34%, transparent 35%, transparent 100%);
+    background-size:56px 28px;
+  }
+  .section-title{
+    font-family:"Yuji Syuku",serif;
+    font-size:clamp(1.6rem,4vw,2.3rem);
+    color:var(--red-dark);
+  }
+  .section-title small{
+    display:block;font-family:"Zen Maru Gothic",sans-serif;
+    font-size:0.8rem;font-weight:700;color:var(--ink);opacity:0.55;
+    letter-spacing:.05em;margin-top:6px;
+  }
+
+  /* ===== 開催概要 ===== */
+  .lede{
+    text-align:center;max-width:640px;margin:0 auto 56px;
+    font-size:0.98rem;color:#4a3c33;
+  }
+  .info-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+  }
+  .info-card{
+    background:#fff;border:1px solid var(--cream-dark);
+    border-radius:14px;padding:26px 22px;
+    box-shadow:0 6px 18px rgba(92,20,27,0.06);
+  }
+  .info-card .ic-label{
+    font-family:"Zen Maru Gothic",sans-serif;
+    display:flex;align-items:center;gap:8px;
+    font-size:0.78rem;font-weight:900;color:var(--red);
+    letter-spacing:.08em;margin-bottom:10px;
+  }
+  .info-card .ic-icon{
+    width:28px;height:28px;border-radius:50%;
+    background:var(--red);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:0.95rem;flex:none;
+  }
+  .info-card .ic-main{font-family:"Zen Maru Gothic",sans-serif;font-size:1.1rem;font-weight:900;color:var(--ink);}
+  .info-card .ic-sub{font-family:"Zen Maru Gothic",sans-serif;font-size:0.78rem;color:#6b5c50;margin-top:4px;}
+  .notice{
+    margin-top:22px;
+    background:var(--cream-dark);
+    border-left:4px solid var(--gold);
+    border-radius:0 10px 10px 0;
+    padding:14px 18px;font-size:0.82rem;color:#5a4a3d;
+  }
+
+  /* ===== メニュー ===== */
+  #menu{background:var(--red-deep);color:#f3e7d8;}
+  #menu .section-title{color:#f3e7d8;}
+  #menu .section-title small{color:#e7cfa8;opacity:0.85;}
+  .menu-card{
+    display:grid;grid-template-columns:1.1fr 1fr;
+    gap:0;background:rgba(0,0,0,0.15);
+    border-radius:20px;overflow:hidden;
+    border:1px solid rgba(255,255,255,0.12);
+    outline:1px solid rgba(201,162,75,0.4);
+    outline-offset:10px;
+  }
+  .menu-photo{height:100%;min-height:260px;}
+  .menu-photo img{width:100%;height:100%;object-fit:cover;}
+  .menu-body{padding:38px 34px;display:flex;flex-direction:column;justify-content:center;}
+  .menu-name{
+    font-family:"Yuji Syuku",serif;
+    font-size:clamp(1.4rem,3.4vw,1.9rem);
+    margin-bottom:8px;
+  }
+  .menu-desc{font-size:0.88rem;color:#e7d9c6;margin-bottom:20px;}
+  .menu-price{
+    display:flex;align-items:baseline;gap:6px;
+    font-weight:900;
+  }
+  .menu-price .num{font-size:2.4rem;color:var(--gold);font-family:"Zen Maru Gothic",sans-serif;}
+  .menu-price .unit{font-size:1rem;color:#e7d9c6;font-family:"Zen Maru Gothic",sans-serif;}
+  .menu-note{margin-top:14px;font-size:0.74rem;color:#c9bba9;font-family:"Zen Maru Gothic",sans-serif;}
+  @media (max-width:640px){
+    .menu-card{grid-template-columns:1fr;}
+    .menu-photo{min-height:220px;}
+  }
+
+  /* ===== 五カ条 ===== */
+  .rules-list{display:flex;flex-direction:column;gap:18px;}
+  .rule{
+    display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start;
+    background:#fff;border-radius:16px;padding:24px 26px;
+    box-shadow:0 6px 18px rgba(92,20,27,0.06);
+    border:1px solid var(--cream-dark);
+  }
+  .rule-num{
+    font-family:"Yuji Syuku",serif;
+    font-size:1.5rem;color:#fff;
+    background:linear-gradient(155deg,var(--red) 0%,var(--red-dark) 100%);
+    line-height:1;min-width:46px;width:46px;height:46px;
+    border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 10px rgba(92,20,27,0.28);
+  }
+  .rule-title{font-weight:900;font-size:1.02rem;color:var(--ink);margin-bottom:6px;}
+  .rule-desc{font-size:0.85rem;color:#6b5c50;}
+  .rule-desc .accent{color:var(--red);font-weight:700;}
+
+  /* ===== 店主紹介 ===== */
+  #owner{background:linear-gradient(180deg,var(--cream) 0%,var(--cream-dark) 100%);}
+  .owner-grid{
+    display:grid;grid-template-columns:280px 1fr;gap:44px;align-items:center;
+  }
+  .owner-photo{
+    position:relative;
+    border-radius:18px;overflow:hidden;
+    box-shadow:0 14px 34px rgba(92,20,27,0.18);
+    outline:1px solid rgba(163,36,47,0.35);
+    outline-offset:8px;
+  }
+  .owner-photo img{aspect-ratio:2/3;object-fit:cover;object-position:top center;}
+  .owner-badge{
+    position:absolute;top:14px;left:14px;
+    background:var(--red);color:#fff;
+    font-size:0.72rem;font-weight:900;letter-spacing:.1em;
+    padding:6px 14px;border-radius:999px;
+  }
+  .owner-name{font-family:"Yuji Syuku",serif;font-size:1.6rem;color:var(--red-dark);margin-bottom:4px;}
+  .owner-role{font-family:"Zen Maru Gothic",sans-serif;font-size:0.82rem;color:var(--gold);font-weight:700;letter-spacing:.1em;margin-bottom:18px;}
+  .owner-text{font-size:0.92rem;color:#4a3c33;margin-bottom:12px;}
+  @media (max-width:720px){
+    .owner-grid{grid-template-columns:1fr;text-align:center;}
+    .owner-photo{max-width:240px;margin:0 auto;}
+  }
+
+  /* ===== アクセス ===== */
+  .access-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  }
+  .access-map{
+    background:#fff;border:1px solid var(--cream-dark);
+    border-radius:16px;padding:34px;
+    box-shadow:0 6px 18px rgba(92,20,27,0.06);
+    text-align:center;
+  }
+  .access-map .pin{
+    width:52px;height:52px;border-radius:50% 50% 50% 0;
+    background:var(--red);transform:rotate(-45deg);
+    margin:0 auto 20px;position:relative;
+  }
+  .access-map .pin::after{
+    content:"";position:absolute;inset:14px;
+    background:#fff;border-radius:50%;
+  }
+  .access-map .place{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:1.15rem;color:var(--ink);}
+  .access-map .place-sub{font-size:0.8rem;color:#6b5c50;margin-top:4px;}
+  .access-list{list-style:none;display:flex;flex-direction:column;gap:14px;font-family:"Zen Maru Gothic",sans-serif;}
+  .access-list li{
+    display:flex;gap:12px;font-size:0.88rem;color:#4a3c33;
+    padding-bottom:14px;border-bottom:1px dashed var(--cream-dark);
+  }
+  .access-list b{color:var(--red-dark);min-width:5.2em;flex:none;}
+  @media (max-width:720px){
+    .access-grid{grid-template-columns:1fr;}
+  }
+
+  /* ===== フッター ===== */
+  footer{
+    background:var(--ink);color:#cabfb3;
+    text-align:center;padding:44px 20px 30px;
+  }
+  footer .f-logo{font-family:"Yuji Syuku",serif;font-size:1.3rem;color:#f3e7d8;margin-bottom:10px;}
+  footer .f-sub{font-size:0.78rem;opacity:0.75;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-logo">
+      <img src="images/logo-transparent.png" alt="らーめん 大野家 ロゴ">
+      <span>らーめん 大野家</span>
+    </div>
+    <nav>
+      <a href="#about">開催概要</a>
+      <a href="#menu">メニュー</a>
+      <a href="#rules">五カ条</a>
+      <a href="#owner">店主紹介</a>
+      <a href="#access">アクセス</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <p class="hero-vertical">醤&nbsp;油&nbsp;ら&nbsp;ぁ&nbsp;め&nbsp;ん&nbsp;専&nbsp;門&nbsp;店</p>
+  <div class="hero-content">
+    <img class="hero-logo" src="images/logo-transparent.png" alt="らーめん 大野家 ロゴ">
+    <p class="hero-catch brush">湯気の向こうに、あの一杯を。</p>
+    <p class="hero-sub">育英祭出店・醤油らーめん専門店「大野家」</p>
+    <div class="hero-divider" aria-hidden="true"><span></span><i>◆</i><span></span></div>
+    <div class="hero-info">
+      <div class="hi-item"><span class="hi-label">DATE</span><span class="hi-value">10/24(土)・25(日)</span></div>
+      <div class="hi-sep"></div>
+      <div class="hi-item"><span class="hi-label">TIME</span><span class="hi-value">10:00〜16:00</span></div>
+      <div class="hi-sep"></div>
+      <div class="hi-item"><span class="hi-label">PLACE</span><span class="hi-value">サレジアンモール</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none"><path d="M0,45 C220,95 480,0 720,32 C980,66 1200,98 1440,40 L1440,100 L0,100 Z"></path></svg>
+  </div>
+</section>
+
+<section id="about" class="washi">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">ABOUT</p>
+      <h2 class="section-title brush">開催概要<small>OUTLINE</small></h2>
+    </div>
+    <p class="lede">
+      前年度は900杯を超える醤油らーめんをご提供し、大きな反響をいただきました。
+      本年度はスープの品質・提供スピードをさらに磨き上げ、目標1000杯へ挑戦します。
+    </p>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ic-label"><span class="ic-icon brush">日</span>開催日</div>
+        <div class="ic-main">令和8年10月24日(土)・25日(日)</div>
+        <div class="ic-sub">育英祭 両日開催</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-label"><span class="ic-icon brush">時</span>営業時間</div>
+        <div class="ic-main">10:00〜16:00</div>
+        <div class="ic-sub">各日通し営業</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-label"><span class="ic-icon brush">処</span>出店場所</div>
+        <div class="ic-main">サレジオ工業高等専門学校</div>
+        <div class="ic-sub">サレジアンモール（外テント）</div>
+      </div>
+      <div class="info-card">
+        <div class="ic-label"><span class="ic-icon brush">杯</span>目標販売数</div>
+        <div class="ic-main">1,000杯</div>
+        <div class="ic-sub">前年実績：900杯超</div>
+      </div>
+    </div>
+    <p class="notice">※ 資材の関係上、状況により一時的に販売を取りやめる場合がございます。あらかじめご了承ください。</p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">MENU</p>
+      <h2 class="section-title brush">メニュー<small>OUR RAMEN</small></h2>
+    </div>
+    <div class="menu-card">
+      <div class="menu-photo"><img src="images/ramen.jpg" alt="大野家の醤油らーめん"></div>
+      <div class="menu-body">
+        <p class="menu-name brush">醤油らーめん</p>
+        <p class="menu-desc">
+          試作と幾度もの飲み比べを経て辿り着いた、心をこめた一杯。
+          厳選した素材が織りなす、深い旨みの醤油スープに、
+          出来立てのチャーシューとメンマをのせてお届けします。
+        </p>
+        <div class="menu-price">
+          <span class="num">500</span><span class="unit">円（1杯）</span>
+        </div>
+        <p class="menu-note">※画像はイメージです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rules" class="washi">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">FIVE RULES</p>
+      <h2 class="section-title brush">大野家 五カ条<small>HOW TO ENJOY</small></h2>
+    </div>
+    <div class="rules-list">
+      <div class="rule">
+        <div class="rule-num">一</div>
+        <div>
+          <p class="rule-title">こだわりのスープは最後まで味わうべし</p>
+          <p class="rule-desc">試作と幾度もの飲み比べを経て辿り着いた、心をこめた一杯。厳選した素材が織りなす、深い旨みをご堪能あれ。</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">二</div>
+        <div>
+          <p class="rule-title">らーめんは<span class="accent">“熱”</span>が命。写真は一瞬で済ませるべし</p>
+          <p class="rule-desc">湯気立つ瞬間こそ、旨みの頂点。熱々の一杯に向き合う、その一瞬が味を決める。</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">三</div>
+        <div>
+          <p class="rule-title">店主の等身大パネルと記念撮影すべし</p>
+          <p class="rule-desc">店主と並べるのは、今だけ。この二日間の思い出を、一枚に残そう。<br>※天候により、パネルの設置を取りやめる場合があります。</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">四</div>
+        <div>
+          <p class="rule-title">店主の一杯に、敬意を払うべし</p>
+          <p class="rule-desc">湯切り、盛り付け、その一手間すべてに、店主の美学が宿る。</p>
+        </div>
+      </div>
+      <div class="rule">
+        <div class="rule-num">五</div>
+        <div>
+          <p class="rule-title">「ごちそうさま」を忘れるべからず</p>
+          <p class="rule-desc">二日間の感謝を、一言に込めて。店主の笑顔は、その一言で決まる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="owner">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">OWNER</p>
+      <h2 class="section-title brush">店主紹介<small>MEET THE BOSS</small></h2>
+    </div>
+    <div class="owner-grid">
+      <div class="owner-photo">
+        <span class="owner-badge">BOSS</span>
+        <img src="images/owner.jpg" alt="大野家 店主">
+      </div>
+      <div>
+        <p class="owner-name brush">大野家 店主</p>
+        <p class="owner-role">SHOP MASTER</p>
+        <p class="owner-text">
+          育英祭にかける想いはらーめん一杯に込めて。湯切りから盛り付けまで、
+          すべての一手間に店主の美学が宿ります。会場では等身大パネルとの記念撮影も、この二日間限定でお楽しみいただけます（天候により中止の場合あり）。
+        </p>
+        <p class="owner-text">
+          スタッフ一同、心を込めて最高の一杯をお届けします。ぜひテントまでお越しください。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="washi">
+  <div class="section-inner">
+    <div class="section-head">
+      <p class="section-label">ACCESS</p>
+      <h2 class="section-title brush">アクセス<small>HOW TO FIND US</small></h2>
+    </div>
+    <div class="access-grid">
+      <div class="access-map">
+        <div class="pin"></div>
+        <p class="place">サレジオ工業高等専門学校</p>
+        <p class="place-sub">育英祭 会場内「サレジアンモール」（外テント）</p>
+      </div>
+      <ul class="access-list">
+        <li><b>店名</b><span>らーめん 大野家</span></li>
+        <li><b>開催日</b><span>令和8年10月24日(土)・25日(日)</span></li>
+        <li><b>営業時間</b><span>10:00〜16:00</span></li>
+        <li><b>会場</b><span>サレジオ工業高等専門学校<br>育英祭（文化祭）内「サレジアンモール」（外テント）</span></li>
+        <li><b>メニュー</b><span>醤油らーめん　1杯 500円</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="f-logo brush">らーめん 大野家</p>
+  <p class="f-sub">育英祭有志団体「大野家」— 心を込めた一杯を、あなたに。</p>
+</footer>
+
+</body>
+</html>
