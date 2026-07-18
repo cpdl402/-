@@ -40,6 +40,7 @@
     border-bottom:1px solid rgba(163,36,47,0.15);
   }
   .header-inner{
+    position:relative;
     max-width:1100px;margin:0 auto;padding:6px 20px;
     display:flex;align-items:center;justify-content:space-between;
   }
@@ -74,9 +75,15 @@
   .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
   .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
+  .nav-close{display:none;}
+
   /* モバイル: ハンバーガーメニューに切り替え、デスクトップの横並びとはUIを分ける */
   @media (max-width:720px){
     .header-logo span{display:none;}
+    .header-logo{
+      position:absolute;left:50%;top:50%;
+      transform:translate(-50%,-50%);
+    }
     .nav-toggle{display:flex;}
     nav{
       display:none;
@@ -87,6 +94,16 @@
       box-shadow:0 12px 24px rgba(42,26,19,0.12);
     }
     nav.is-open{display:flex;}
+    .nav-close{
+      display:block;
+      width:100%;text-align:center;
+      font-family:"Zen Maru Gothic",sans-serif;
+      font-size:0.8rem;font-weight:700;color:var(--red-dark);
+      background:none;border:none;
+      padding:14px 20px;
+      border-top:1px solid var(--cream-dark);
+      cursor:pointer;
+    }
     nav a{
       width:100%;text-align:center;
       padding:16px 20px;font-size:0.9rem;border-radius:0;
@@ -393,6 +410,7 @@
       <a href="#rules">五カ条</a>
       <a href="#owner">店主紹介</a>
       <a href="#access">アクセス</a>
+      <button class="nav-close" id="navClose" type="button">✕ 閉じる</button>
     </nav>
   </div>
 </header>
@@ -401,10 +419,16 @@
   (function(){
     var toggle = document.getElementById('navToggle');
     var nav = document.getElementById('siteNav');
+    var closeBtn = document.getElementById('navClose');
+    function closeNav(){
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
     toggle.addEventListener('click', function(){
       var open = nav.classList.toggle('is-open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
+    closeBtn.addEventListener('click', closeNav);
     nav.querySelectorAll('a').forEach(function(link){
       link.addEventListener('click', function(){
         nav.classList.remove('is-open');
