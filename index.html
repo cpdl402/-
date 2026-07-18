@@ -38,10 +38,6 @@
     width:100%;
     background:var(--cream);
     border-bottom:1px solid rgba(163,36,47,0.15);
-    -webkit-transform:translateZ(0);
-    transform:translateZ(0);
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
   }
   .header-inner{
     max-width:1100px;margin:0 auto;padding:6px 20px;
@@ -83,15 +79,14 @@
     .header-logo span{display:none;}
     .nav-toggle{display:flex;}
     nav{
+      display:none;
       position:fixed;top:0;left:0;right:0;z-index:99;
       flex-direction:column;gap:0;
       background:var(--cream);
       padding-top:76px;
-      max-height:0;overflow:hidden;
-      transition:max-height .3s ease;
       box-shadow:0 12px 24px rgba(42,26,19,0.12);
     }
-    nav.is-open{max-height:420px;}
+    nav.is-open{display:flex;}
     nav a{
       width:100%;text-align:center;
       padding:16px 20px;font-size:0.9rem;border-radius:0;
